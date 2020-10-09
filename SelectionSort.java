@@ -6,27 +6,27 @@ class Program {
         // Time: O(n ** 2) Worst-case
         // Space: O(1)
 
-		if (array.length == 0) {
-			return new int[] {};
-		}
+        if (array.length == 0) {
+            return new int[] {};
+        }
 
-		for (int i = 0; i < array.length; i++) {
-			int minIndex = i;
-			for (int j = i + 1; j < array.length; j++) {
-				if (array[j] < array[minIndex]) {
-					minIndex = j;
-				}
-			}
+        for (int i = 0; i < array.length; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+        	    if (array[j] < array[minIndex]) {
+                    minIndex = j;
+        	       }
+               }
 
-			swap(i, minIndex, array);
-		}
+                swap(i, minIndex, array);
+        }
 
-		return array;
+        return array;
     }
 
-	public static void swap(int first, int second, int[] array) {
-		int temp  = array[first];
-		array[first] = array[second];
-		array[second] = temp;
-	}
+    public static void swap(int first, int second, int[] array) {
+        int temp  = array[first];
+        array[first] = array[second];
+        array[second] = temp;
+    }
 }
