@@ -3,7 +3,7 @@ import java.util.*;
 class Program {
     public static int[] insertionSort(int[] array) {
 
-        // Time: O(n ** 2) Worst-casse
+        // Time: O(n ** 2) Worst-case
         // Space: O(1)
 
 		if (array.length == 0) {
@@ -18,8 +18,8 @@ class Program {
 			}
 		}
 
-    return array;
-  }
+        return array;
+    }
 
 	public static void swap(int first, int second, int[] array) {
 		int temp = array[first];
