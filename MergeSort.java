@@ -4,7 +4,7 @@ class Program {
     public static int[] mergeSort(int[] array) {
 
         // Time: O(nLogn)
-        // Space: O(nLogn)
+        // Space: O(nLogn) - worst-case and O(n) best-case
 
         // Write your code here.
         if (array.length <= 1) {
@@ -51,3 +51,56 @@ class Program {
         return combinedArray;
     }
 }
+
+
+// An alternative method of mergeSort that has better space complexity O(n)
+// and in-place
+
+/**
+public static int[] mergeSort(array) {
+    if (array.length <= 1) {
+        return array;
+    }
+
+    int[] auxArray = array.clone();
+    mergeSort(array, 0, array.length - 1, auxArray);
+    return array;
+}
+
+public static void mergeSort(int[] mainArray, int startIndex, int endIndex,
+        int[] auxArray) {
+
+    if (startIndex == endIndex) {
+        return;
+    }
+
+    int midIndex = (startIndex + endIndex) / 2;
+    mergeSort(auxArray, startIndex, midIndex, mainArray);
+    mergeSort(auxArray, midIndex + 1, endIndex, mainArray);
+    doMerge(mainArray, startIndex, midIndex, endIndex, auxArray);
+}
+
+public static void doMerge(int[] mainArray, int startIndex, int midIndex,
+        int endIndex, int[] auxArray) {
+
+    int k = startIndex;
+    int i = startIndex;
+    int j = midIndex + 1;
+
+    while (i <= midIndex && j <= endIndex) {
+        if (auxArray[i] <= auxArray[j]) {
+            mainArray[k++] = auxArray[i++];
+        } else {
+            mainArray[k++] = auxArray[j++];
+        }
+    }
+
+    while (i <= midIndex) {
+        mainArray[k++] = auxArray[i++];
+    }
+
+    while (j <= endIndex) {
+        mainArray[k++] = auxArray[j++];
+    }
+}
+*/
