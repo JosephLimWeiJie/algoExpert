@@ -17,7 +17,7 @@ class Graph {
 	// Constructor
 	@SuppressWarnings("unchecked") Graph(int v)
 	{
-		V = v;
+		this.V = v;
 		adj = new LinkedList[v];
 		for (int i = 0; i < v; ++i)
 			adj[i] = new LinkedList();
