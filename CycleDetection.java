@@ -1,4 +1,4 @@
-// A Java Program to detect cycle in a graph
+// A Java Easy.Easy.Easy.Easy.Program to detect cycle in a graph
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
