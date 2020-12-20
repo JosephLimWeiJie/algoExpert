@@ -22,7 +22,6 @@ class Program {
         return true;
     }
 
-
     public static boolean isPalindromeAlt(String str) {
 
         // Time:  O(n)
