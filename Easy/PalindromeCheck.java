@@ -7,6 +7,25 @@ class Program {
     public static boolean isPalindrome(String str) {
 
         // Time:  O(n)
+        // Space: O(1)
+
+        int leftIdx = 0;
+        int rightIdx = str.length() - 1;
+        while (leftIdx < rightIdx) {
+            if (str.charAt(leftIdx) == str.charAt(rightIdx)) {
+                leftIdx++;
+                rightIdx--;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public static boolean isPalindromeAlt(String str) {
+
+        // Time:  O(n)
         // Space: O(n) is worst case
 
         char[] charArr = str.toCharArray();
