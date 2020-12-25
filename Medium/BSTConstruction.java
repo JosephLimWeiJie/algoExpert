@@ -91,7 +91,7 @@ class Program {
                 if (this.left != null && this.right != null) {
                     this.value = this.right.getMinValue();
                     this.right.remove(this.value, this);
-                // if this current node has no parent
+                // if this current node is the root node of the BST
                 } else if (parent == null) {
                     if (this.left != null) {
                         this.value = this.left.value;
