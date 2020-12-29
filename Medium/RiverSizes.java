@@ -58,7 +58,6 @@ class Program {
                 if (matrix[newRowIdx][newColIdx] == 1 && !visited[newRowIdx][newColIdx]) {
                     visited[newRowIdx][newColIdx] = true;
                     riverLength++;
-                    System.out.println("river length: " + riverLength + " at " + newRowIdx + " " + newColIdx);
                     queue.add(new Integer[] {newRowIdx, newColIdx});
                 }
 
