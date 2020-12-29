@@ -18,6 +18,7 @@ class Program {
             counter++;
         }
 
+        // For the edge case where removing the kth node is the head node.
         if (second == null) {
             head.value = head.next.value;
             head.next = head.next.next;
