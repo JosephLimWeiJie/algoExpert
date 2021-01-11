@@ -5,6 +5,10 @@ import java.util.*;
 class Program {
 
     public static int levenshteinDistance(String str1, String str2) {
+
+        // Time:  O(n * m) where n and m are the length of str1 and str2 respectively.
+        // Space: O(n * m)
+
         int[][] arr = new int[str1.length() + 1][str2.length() + 1];
 
         // Prepopulate the 2D array.
