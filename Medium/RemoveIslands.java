@@ -6,6 +6,10 @@ class Program {
 
     public static int[][] removeIslands(int[][] matrix) {
 
+        // Time:  O(wh)
+        // Space: O(wh)
+        // where w and h are the width and the height of the matrix
+
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 boolean rowIsBorder = (i == 0) || (i == matrix.length - 1);
