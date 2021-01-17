@@ -15,6 +15,7 @@ class Program {
     }
 
     public static void partition(int startIdx, int endIdx, int[] array, int k) {
+
         while (true) {
             int pivot = array[startIdx];
 
