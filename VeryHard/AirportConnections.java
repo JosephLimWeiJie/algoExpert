@@ -7,6 +7,8 @@ class Program {
     public static int airportConnections(
             List<String> airports, List<List<String>> routes, String startingAirport) {
 
+        // Time: O(v + e)
+
         Map<String, Integer> airportsId = mapAirportsToId(airports);
         List<List<Integer>> adjList = getAdjList(routes, airportsId);
         int[] inDegree = new int[airports.size()];
@@ -61,7 +63,7 @@ class Program {
                 ans++;
             }
         }
-
+        System.out.println(Arrays.toString(who));
         return ans;
     }
 
