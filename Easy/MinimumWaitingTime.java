@@ -6,8 +6,8 @@ class Program {
 
     public static int minimumWaitingTime(int[] queries) {
 
-        // Time:  O()
-        // Space: O()
+        // Time:  O(n * log(n))
+        // Space: O(1)
 
         Arrays.sort(queries);
         int waitingTime = 0;
