@@ -16,18 +16,16 @@ class Program {
             mapReqsToIds.put(reqs[i], i);
         }
 
-        for (int j = 0; j < reqs.length; j++) {
-            for (int k = 0; k < blocks.size(); k++) {
-                Map<String, Boolean> map = blocks.get(k);
-                for (String str : reqs) {
-                    if (map.containsKey(str)) {
-                        int strId = mapReqsToIds.get(str);
-                        data[strId][k] = map.get(str) == true ? 1 : 0;
-                    }
+        for (int k = 0; k < blocks.size(); k++) {
+            Map<String, Boolean> map = blocks.get(k);
+            for (String str : reqs) {
+                if (map.containsKey(str)) {
+                    int strId = mapReqsToIds.get(str);
+                    data[strId][k] = map.get(str) == true ? 1 : 0;
                 }
             }
-
         }
+
         int[][] newDataOne = minDistanceFromLeft(data);
         int[][] newDataTwo = minDistanceFromRight(data);
         int[][] newMinDistanceData = minDistanceFromLeftRight(newDataOne, newDataTwo);
