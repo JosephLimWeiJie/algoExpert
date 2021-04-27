@@ -14,41 +14,21 @@ public class PartitionEqualSubsetSum {
         }
 
         sum /= 2;
-        int[][] board = new int[nums.length + 1][sum + 1];
+        boolean[] board = new boolean[sum + 1];
+        // base case for dynamic programming
+        board[0] = true;
 
-        for (int i = 1; i < board.length; i++) {
-            int currNum = nums[i - 1];
-            boolean hasConsideredCurrNum = false;
-            for (int j = 1; j < board[i].length; j++) {
-                if (currNum <= j) {
-                    int prevNum = board[Math.max(i - 1, 0)][j];
-                    if (currNum + prevNum <= j) {
-                        board[i][j] = currNum + prevNum;
-                    } else {
-                        board[i][j] = currNum;
-                    }
-                } else {
-                    board[i][j] = board[i][j - 1];
-                }
-                
-                if (board[i][j] == sum) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = sum; j >= nums[i]; j--) {
+                if (board[sum] == true) {
                     return true;
                 }
-            }
-        }
-        printArray(board);
-        return false;
-    }
 
-    public static void printArray(int[][] arr) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                sb.append(arr[i][j] + ", ");
+                board[j] = board[j] || board[j - nums[i]];
             }
-            sb.append("\n");
         }
-        System.out.println(sb.toString());
+
+        return false;
     }
 
     public static void main(String[] args) {

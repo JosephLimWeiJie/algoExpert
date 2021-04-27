@@ -1,0 +1,2 @@
+red, blue, green, yellow, white
+red, red, yellow, yellow, yellow, yellow, blue, red, red
