@@ -8,38 +8,38 @@ public class RemoveIslands {
         boolean[][] visited = new boolean[matrix.length][matrix[0].length];
 
         // Top border
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = 0; i < matrix[0].length; i++) {
             if (matrix[0][i] == 1) {
                 visitNonImage(0, i, matrix, visited);
             }
         }
 
         // Bottom border
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = 0; i < matrix[0].length; i++) {
             if (matrix[matrix.length - 1][i] == 1) {
                 visitNonImage(matrix.length - 1, i, matrix, visited);
             }
         }
 
         // Left border
-        for (int i = 0; i < matrix[0].length; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             if (matrix[i][0] == 1) {
                 visitNonImage(i, 0, matrix, visited);
             }
         }
 
         // Right border
-        for (int i = 0; i < matrix[0].length; i++) {
-            if (matrix[i][matrix.length - 1] == 1) {
-                visitNonImage(i, matrix.length - 1, matrix, visited);
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i][matrix[0].length - 1] == 1) {
+                visitNonImage(i, matrix[0].length - 1, matrix, visited);
             }
         }
 
         // Convert all '1's within the border to '0'
-        for (int i = 1; i < matrix.length - 2; i++) {
-            for (int j = 1; j < matrix[i].length - 2; j++) {
+        for (int i = 0; i < matrix.length - 1; i++) {
+            for (int j = 0; j < matrix[i].length - 1; j++) {
                 if (matrix[i][j] == 1 && !visited[i][j]) {
-                    matrix[i][j] = 2;
+                    matrix[i][j] = 0;
                 }
             }
         }
