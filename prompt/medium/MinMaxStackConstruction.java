@@ -5,28 +5,46 @@ import java.util.*;
 public class MinMaxStackConstruction {
     
     static class MinMaxStack {
+        Stack<Integer[]> minMaxStack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
+        
         public int peek() {
-          // Write your code here.
-            return -1;
+            return stack.peek();
         }
     
         public int pop() {
-          // Write your code here.
-            return -1;
+            minMaxStack.pop();
+            return stack.pop();
         }
     
         public void push(Integer number) {
-          // Write your code here.
+            stack.push(number);
+
+            if (minMaxStack.empty()) {
+                minMaxStack.push(new Integer[] {number, number});
+            } else {
+                Integer[] prevMinMaxPair = minMaxStack.peek();
+                int prevMin = prevMinMaxPair[0];
+                int prevMax = prevMinMaxPair[1];
+    
+                if (number < prevMin) {
+                    minMaxStack.push(new Integer[] {number, prevMax});
+                } else if (number > prevMax) {
+                    minMaxStack.push(new Integer[] {prevMin, number});
+                } else {
+                  minMaxStack.push(prevMinMaxPair);
+                }
+            }
         }
     
         public int getMin() {
-          // Write your code here.
-            return -1;
+            Integer[] top = minMaxStack.peek();
+            return top[0];
         }
     
         public int getMax() {
-          // Write your code here.
-            return -1;
+            Integer[] top = minMaxStack.peek();
+            return top[1];
         }
     }
 
