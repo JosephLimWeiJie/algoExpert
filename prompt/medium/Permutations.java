@@ -5,8 +5,23 @@ import java.util.*;
 public class Permutations {
 
     public static List<List<Integer>> getPermutations(List<Integer> array) {
-        // Write your code here.
-        return new ArrayList<List<Integer>>();
+        List<List<Integer>> permutations = new ArrayList<>();
+        getPermutations(array, new ArrayList<Integer>(), permutations);
+        return permutations;
+    }
+
+    public static void getPermutations(List<Integer> array, List<Integer> currPermutations, List<List<Integer>> permutations) {
+        if (array.size() == 0 && currPermutations.size() > 0) {
+            permutations.add(currPermutations);
+        } else {
+            for (int i = 0; i < array.size(); i++) {
+                List<Integer> tempArr = new ArrayList<>(array);
+                tempArr.remove(i);
+                List<Integer> newPermutation = new ArrayList<Integer>(currPermutations);
+                newPermutation.add(array.get(i));
+                getPermutations(tempArr, newPermutation, permutations);
+            }
+        }
     }
     
     public static void TestCase1() {
